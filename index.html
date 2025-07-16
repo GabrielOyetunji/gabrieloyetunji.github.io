@@ -1,69 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Gabriel Oyetunji | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    :root {
+      --bg-dark: #0a0a0a;
+      --card-bg: #121212;
+      --primary-color: #3b82f6;
+      --text-light: #e0e0e0;
+      --text-muted: #999;
+      --accent: #444;
+    }
+
     body {
-      background-color: #000000;
-      color: #E0E0E0;
-      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: "Segoe UI", sans-serif;
       margin: 0;
       padding: 0;
     }
+
     .container {
-      max-width: 1000px;
+      max-width: 960px;
       margin: auto;
       padding: 2rem;
     }
+
     header {
       display: flex;
       align-items: center;
       gap: 1.5rem;
       margin-bottom: 3rem;
     }
+
     header img {
       border-radius: 50%;
       width: 140px;
       height: 140px;
       object-fit: cover;
+      border: 3px solid var(--primary-color);
     }
+
     header .info h1 {
       margin: 0;
       font-size: 2rem;
+      color: white;
     }
+
     header .info h3 {
       margin-top: 0.3rem;
       font-weight: 400;
-      color: #ccc;
+      color: var(--text-muted);
     }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      color: white;
+    }
+
     hr {
       border: none;
       height: 1px;
       background-color: #222;
-      margin: 2.5rem 0;
+      margin: 3rem 0;
     }
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #FFFFFF;
+
+    p, li {
+      line-height: 1.6;
     }
+
     .project-card {
-      background: #111;
-      border: 1px solid #333;
+      background: var(--card-bg);
+      border: 1px solid #222;
       padding: 1.5rem;
       margin-bottom: 2rem;
       border-radius: 12px;
+      transition: all 0.3s ease;
     }
+
+    .project-card:hover {
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+      transform: scale(1.01);
+    }
+
     .project-card img {
       max-width: 100%;
       border-radius: 8px;
       margin-bottom: 1rem;
     }
+
     .tool-tag {
-      background-color: #3b82f6;
+      background-color: var(--primary-color);
       color: white;
       padding: 5px 10px;
       border-radius: 10px;
@@ -71,25 +102,50 @@
       font-size: 13px;
       display: inline-block;
     }
+
     .button {
-      background-color: #3b82f6;
+      background-color: var(--primary-color);
       color: white;
       padding: 10px 16px;
-      margin-right: 10px;
+      margin: 0.5rem 10px 0 0;
       border-radius: 6px;
       text-decoration: none;
       display: inline-block;
+      font-weight: 500;
     }
+
     .button.secondary {
-      background-color: #444;
+      background-color: var(--accent);
     }
-    a { color: #3b82f6; text-decoration: none; }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    details {
+      background-color: #111;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    summary {
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f2f2f2;
+      margin-bottom: 0.5rem;
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- HEADER -->
     <header>
-      <img src="images/profile.jpg" alt="Gabriel's Profile">
+      <img src="images/profile.jpg" alt="Gabriel's Profile" />
       <div class="info">
         <h1>Gabriel Oyetunji</h1>
         <h3>Data Analyst | Data Scientist</h3>
@@ -97,35 +153,50 @@
       </div>
     </header>
 
-    <hr>
+    <!-- ABOUT ME -->
+    <details open>
+      <summary>🧾 About Me</summary>
+      <p>
+        I'm a Data Analyst & Data Scientist focused on clarity, efficiency, and impact.  
+        I use Python, SQL, Power BI, and Excel to clean data, build automated workflows,  
+        and design dashboards that guide better decisions — not just prettier reports.
+      </p>
+    </details>
 
-    <div>
-      <div class="section-title">🧾 About Me</div>
-      <p>I'm a Data Analyst & Data Scientist focused on clarity, efficiency, and impact. I use Python, SQL, Power BI, and Excel to clean data, build automated workflows, and design dashboards that guide better decisions — not just prettier reports.</p>
-    </div>
-
-    <div>
-      <div class="section-title">📑 Certifications</div>
+    <!-- CERTIFICATIONS -->
+    <details>
+      <summary>📑 Certifications</summary>
       <ul>
         <li><a href="https://www.datacamp.com/certificate/DA0022509689479" target="_blank">✅ Data Analyst – DataCamp (April 2025)</a></li>
       </ul>
-    </div>
+    </details>
 
-    <div>
-      <div class="section-title">🗂️ Projects</div>
+    <!-- PROJECTS -->
+    <div class="section-title">🗂️ Projects</div>
 
+    <details>
+      <summary>📈 NovaTech Sales Dashboard</summary>
       <div class="project-card">
-        <img src="images/nova.png" alt="NovaTech Dashboard">
-        <h3>NovaTech Sales Dashboard</h3>
+        <img src="images/nova.png" alt="NovaTech Dashboard" />
         <p>Recorded walkthrough showing slicers, KPIs, and regional sales insights.</p>
         <span class="tool-tag">Excel</span>
-        <p>This interactive Excel dashboard uses slicers, charts, and conditional formatting to show sales vs target performance across regions.</p>
+        <p>
+          This interactive Excel dashboard uses slicers, charts, and conditional formatting to show sales vs target performance across regions.<br><br>
+          NovaTech Distributors needed a clear view of its 2025 sales performance to inform decisions. Using Excel, I built:<br>
+          - KPI cards for total sales and target variance<br>
+          - Monthly and regional breakdowns<br>
+          - Top/bottom product rankings<br>
+          - Segmentation by customer type<br><br>
+          The dashboard revealed that only 47% of targets were met, highlighting regional underperformance and guiding strategy refinement.
+        </p>
         <a href="https://www.loom.com/share/19461c0fd60b408a80d9675aa1ff0de2" class="button">▶️ Watch Demo</a>
       </div>
+    </details>
 
+    <details>
+      <summary>⚗️ Interactive UV-Vis Spectra Trimmer</summary>
       <div class="project-card">
-        <img src="images/uv.app.png" alt="UV-Vis Spectra App">
-        <h3>Interactive UV-Vis Spectra Trimmer with Python & Streamlit</h3>
+        <img src="images/uv.app.png" alt="UV-Vis Spectra App" />
         <p>This project was developed for a PhD researcher working on UV-Vis spectrophotometry data.</p>
         <span class="tool-tag">Python</span>
         <span class="tool-tag">Streamlit</span>
@@ -139,16 +210,14 @@
         <a href="https://github.com/GabrielOyetunji/uvvis-spectrophotometer-app" class="button secondary">📁 GitHub</a>
         <a href="https://www.loom.com/share/e372774ab4f74a1db40446944c25fa72" class="button secondary">▶️ Demo</a>
       </div>
-    </div>
+    </details>
 
-    <hr>
-
-    <div>
-      <div class="section-title">📬 Contact</div>
-      <p>Email: <a href="mailto:gabrieloyetunji25@gmail.com">gabrieloyetunji25@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/gabrieloyetunji">github.com/gabrieloyetunji</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/gabriel-oyetunji-a7aa9513b">linkedin.com/in/gabriel-oyetunji-a7aa9513b</a></p>
-    </div>
+    <!-- CONTACT -->
+    <hr />
+    <div class="section-title">📬 Contact</div>
+    <p>Email: <a href="mailto:gabrieloyetunji25@gmail.com">gabrieloyetunji25@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/gabrieloyetunji">github.com/gabrieloyetunji</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/gabrieloyetunji">linkedin.com/in/gabrieloyetunji</a></p>
   </div>
 </body>
 </html>
